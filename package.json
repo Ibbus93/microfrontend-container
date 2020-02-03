@@ -1,7 +1,7 @@
 {
   "name": "microfrontend-container",
   "version": "1.0.0",
-  "homepage": "https://www.github.io/Ibbus93/microfrontend-container",
+  "homepage": "https://ibbus93.github.io/microfrontend-container/",
   "description": "Microfrontend container application based on React and Redux",
   "repository": "git@github.com:Ibbus93/microfrontend-container",
   "author": "Federico Ibba",
