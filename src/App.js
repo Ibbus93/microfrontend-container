@@ -12,7 +12,7 @@ const SIGN_IN_PATH = 'micro-login';
 
 const SignIn = ({ history }) => <MicroFrontend history={history} name="SignIn" host={HOST} path={SIGN_IN_PATH} />;
 
-const App = ({ history }) => (
+const App = () => (
     <AppContainer>
         <Header/>
         <Switch>
