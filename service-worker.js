@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/Ibbus93/microfrontend-container/precache-manifest.77446e1f8a090000138f16edade26fff.js"
+  "/microfrontend-container/precache-manifest.143e71ff39a6628e397b218258d16786.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/Ibbus93/microfrontend-container/index.html", {
+workbox.routing.registerNavigationRoute("/microfrontend-container/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
