@@ -5,7 +5,7 @@ import './index.css';
 import { BrowserRouter } from "react-router-dom";
 
 const Root = () => (
-    <BrowserRouter>
+    <BrowserRouter >
         <App />
     </BrowserRouter>
 );

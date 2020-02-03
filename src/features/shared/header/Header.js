@@ -1,19 +1,17 @@
 import React from 'react';
-import { AppBar, Button, IconButton, Toolbar, Typography } from "@material-ui/core";
-import { Menu as MenuIcon } from "@material-ui/icons";
+import { Link } from 'react-router-dom';
+
+import { AppBar, Button, Toolbar, Typography } from "@material-ui/core";
 import { RightNav } from "../../landing/components";
 
 const Header = () => (
-    <AppBar position="static">
+    <AppBar position="sticky">
         <Toolbar>
-            <IconButton edge="start" color="inherit" aria-label="menu">
-                <MenuIcon/>
-            </IconButton>
             <Typography variant="h6">
-                News
+                <Button><Link to="/">Pine Canyon Bank</Link></Button>
             </Typography>
             <RightNav>
-                <Button color="inherit">Login</Button>
+                <Button><Link to="/sign-in">Login</Link></Button>
             </RightNav>
         </Toolbar>
     </AppBar>

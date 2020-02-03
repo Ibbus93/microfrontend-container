@@ -1,19 +1,22 @@
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
 
+import { Landing } from './features';
+import { Header, MicroFrontend } from "./features/shared";
 import styled from "styled-components";
 
-import { Landing } from './features';
-import { Header } from "./features/shared";
+const AppContainer = styled.div``;
 
-const AppContainer = styled.div`
-    
-`;
+const HOST = 'https://ibbus93.github.io/';
+const SIGN_IN_PATH = 'micro-login';
 
-const App = () => (
+const SignIn = ({ history }) => <MicroFrontend history={history} name="SignIn" host={HOST} path={SIGN_IN_PATH} />;
+
+const App = ({ history }) => (
     <AppContainer>
         <Header/>
         <Switch>
+            <Route path='/sign-in' component={SignIn} />
             <Route path='/' component={Landing}/>
         </Switch>
     </AppContainer>
