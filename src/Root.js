@@ -8,9 +8,11 @@ import './index.css';
 
 import store from './store';
 
+const basename = process.env.REACT_APP_ENV ==='dev' ? '' : '/microfrontend-container';
+
 const Root = () => (
     <Provider store={store}>
-        <BrowserRouter>
+        <BrowserRouter basename={basename}>
             <App />
         </BrowserRouter>
     </Provider>

@@ -12,9 +12,9 @@ const App = () => (
     <div id="app-container">
         <Header />
         <Switch>
-            <Route path='/sign-in' component={SignIn} />
-            <Route path='/welcome' component={Welcome} />
-            <Route path='/' component={Landing} />
+            <Route path={`/sign-in`} component={SignIn} />
+            <Route path={`/welcome`} component={Welcome} />
+            <Route path={`/`} component={Landing} />
         </Switch>
     </div>
 );
