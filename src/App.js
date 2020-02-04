@@ -1,19 +1,17 @@
 import React from 'react';
 import { Route, Switch } from 'react-router';
 
-import { Landing, Header, SignIn } from './features';
+import { Landing, SignIn } from './features';
+import { Layout } from './features/shared';
 
-const Welcome = () => <h2>Welcome stranger</h2>;
+const Welcome = () => <Layout><h2>Welcome stranger</h2></Layout>;
 
 const App = () => (
-    <div id="app-container">
-        <Header />
-        <Switch>
-            <Route path='/sign-in' component={SignIn} />
-            <Route path='/welcome' component={Welcome} />
-            <Route path='/' component={Landing} />
-        </Switch>
-    </div>
+    <Switch>
+        <Route exact path='/' component={Landing} />
+        <Route path='/sign-in' component={SignIn} />
+        <Route path='/welcome' component={Welcome} />
+    </Switch>
 );
 
 export default App;

@@ -1,20 +1,31 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router';
 
-import { AppBar, Button, Toolbar, Typography } from "@material-ui/core";
-import { RightNav } from "../landing/components";
+import { Toolbar, Typography } from '@material-ui/core';
+import { LogoButton, StyledHeader } from '../shared/styled';
 
-const Header = () => (
-    <AppBar position="sticky">
-        <Toolbar>
-            <Typography variant="h6">
-                <Button><Link to="/">Pine Canyon Bank</Link></Button>
-            </Typography>
-            <RightNav>
-                <Button><Link to="/sign-in">Login</Link></Button>
-            </RightNav>
-        </Toolbar>
-    </AppBar>
-);
+import { connect } from 'react-redux';
+import { Selector } from '../../store/user/reducer';
+import { NotSigned, Signed } from './components';
 
-export default Header;
+const Header = ({ user }) => {
+    const history = useHistory();
+
+    return (
+        <StyledHeader position="sticky">
+            <Toolbar>
+                <Typography variant="h6">
+                    <LogoButton variant={'contained'} onClick={() => history.push('/')}>Pine Canyon Bank</LogoButton>
+                </Typography>
+
+                { !!user ? <Signed user={user} /> : <NotSigned /> }
+            </Toolbar>
+        </StyledHeader>
+    );
+};
+
+const mapStateToProps = state => ({
+    user: Selector.getUser(state).data
+});
+
+export default connect(mapStateToProps)(Header);

@@ -1,14 +1,13 @@
 import React from 'react';
-import { Provider } from 'react-redux';
-
 import { BrowserRouter } from 'react-router-dom';
+
+import { Provider } from 'react-redux';
+import store from './store';
 
 import App from './App';
 import './index.css';
 
-import store from './store';
-
-const basename = process.env.REACT_APP_ENV ==='dev' ? '' : '/microfrontend-container';
+const basename = process.env.REACT_APP_ENV === 'dev' ? '' : '/microfrontend-container';
 
 const Root = () => (
     <Provider store={store}>

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { requestUser } from '../../store/user/actions';
 import { Selector } from '../../store/user/reducer';
 import MicroFrontend from '../micro-frontend';
+import { Layout } from '../shared';
 
 const HOST = process.env.REACT_APP_HOST;
 const SIGN_IN_PATH = process.env.REACT_APP_SIGN_IN_PATH;
@@ -22,13 +23,15 @@ const SignIn = ({ history, user, getUser }) => {
     };
 
     return (
-        <MicroFrontend
-            history={history}
-            name="SignIn"
-            handler={handleLogin}
-            host={HOST}
-            path={SIGN_IN_PATH}
-        />
+        <Layout>
+            <MicroFrontend
+                history={history}
+                name="SignIn"
+                handler={handleLogin}
+                host={HOST}
+                path={SIGN_IN_PATH}
+            />
+        </Layout>
     );
 };
 

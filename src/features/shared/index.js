@@ -1,7 +1,5 @@
-import Header from "../header";
-import MicroFrontend from "../micro-frontend";
+import Layout from "./layout"
 
 export {
-    Header,
-    MicroFrontend
+    Layout,
 };
