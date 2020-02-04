@@ -1,5 +1,5 @@
-html, body {
-    /*height: 100%;*/
+html, body, #root {
+    height: 100%;
 }
 
 body {
@@ -10,6 +10,15 @@ body {
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+#root, #app-container, main {
+    display: flex;
+    flex-direction: column;
+}
+
+#app-container, main {
+    flex: 1;
 }
 
 code {
