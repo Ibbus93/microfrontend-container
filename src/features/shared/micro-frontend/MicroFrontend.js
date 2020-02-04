@@ -6,10 +6,11 @@ const MicroFrontend = ({
     path,
     window,
     history,
+    handler,
     document,
 }) => {
     const renderMicroFrontend = () => {
-        window[`render${name}`](`${name}-container`, history);
+        window[`render${name}`](`${name}-container`, history, handler);
     };
 
     const loadScript = (scriptId) => {
@@ -36,7 +37,6 @@ const MicroFrontend = ({
         loadScript(scriptId);
 
         return function cleanup() {
-            console.log(`unmount${name}`);
             window[`unmount${name}`](`${name}-container`)
         };
     }, []);
