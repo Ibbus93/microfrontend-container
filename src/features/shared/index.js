@@ -1,5 +1,5 @@
-import Header from "./header";
-import MicroFrontend from "./micro-frontend";
+import Header from "../header";
+import MicroFrontend from "../micro-frontend";
 
 export {
     Header,

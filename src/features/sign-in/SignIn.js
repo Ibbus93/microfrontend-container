@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 
 import { requestUser } from '../../store/user/actions';
 import { Selector } from '../../store/user/reducer';
-import { MicroFrontend } from '../shared';
+import MicroFrontend from '../micro-frontend';
 
-const HOST = 'https://ibbus93.github.io/';
-const SIGN_IN_PATH = 'micro-login';
+const HOST = process.env.REACT_APP_HOST;
+const SIGN_IN_PATH = process.env.REACT_APP_SIGN_IN_PATH;
 
-const SignIn = ({ history, user, getUser}) => {
+const SignIn = ({ history, user, getUser }) => {
     useEffect(() => {
         if (user.data) {
             history.push('/welcome');
@@ -21,20 +21,23 @@ const SignIn = ({ history, user, getUser}) => {
         }
     };
 
-    const MicroSignIn = ({ history }) =>
-        <MicroFrontend history={history} name="SignIn"
-                       handler={handleLogin}
-                       host={HOST} path={SIGN_IN_PATH} />;
-
-    return MicroSignIn({history});
+    return (
+        <MicroFrontend
+            history={history}
+            name="SignIn"
+            handler={handleLogin}
+            host={HOST}
+            path={SIGN_IN_PATH}
+        />
+    );
 };
 
 const mapStateToProps = state => ({
-    user: Selector.getUser(state)
+    user: Selector.getUser(state),
 });
 
 const dispatchProps = {
-    getUser: requestUser
+    getUser: requestUser,
 };
 
 export default connect(mapStateToProps, dispatchProps)(SignIn);
