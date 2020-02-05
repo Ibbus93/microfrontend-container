@@ -3,9 +3,9 @@ import { call, put, takeLatest } from 'redux-saga/effects';
 import { TYPES, receivedUser, userError } from './actions';
 import { get } from '../../api';
 
-function* fetchUser({ payload: { id }}) {
+function* fetchUser({ payload: { id, token }}) {
     try {
-        const user = yield call(get, { id });
+        const user = yield call(get, { id, token });
 
         yield put(receivedUser({ user }));
     } catch (e) {

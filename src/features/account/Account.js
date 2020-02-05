@@ -1,4 +1,6 @@
 import React from 'react';
+import Cookies from 'js-cookie';
+
 import { Layout, MicroFrontend } from '../../shared';
 import Authentication from '../../shared/authentication';
 
@@ -12,6 +14,10 @@ const Account = ({ history }) => (
             name="BankAccount"
             host={HOST}
             path={SIGN_IN_PATH}
+            auth={{
+                id: Cookies.get('id'),
+                token: Cookies.get('token')
+            }}
         />
     </Layout>
 );

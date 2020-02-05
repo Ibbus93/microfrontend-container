@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import Cookie from 'js-cookie';
 
 import { requestUser } from '../../store/user/actions';
 import { Selector } from '../../store/user/reducer';
@@ -16,9 +17,11 @@ const SignIn = ({ history, user, getUser }) => {
         }
     }, [user]);
 
-    const handleLogin = ({ id, logged }) => {
-        if (id && logged) {
+    const handleLogin = ({ id, token }) => {
+        if (id && token) {
             getUser({ id });
+            Cookie.set('id', id);
+            Cookie.set('token', token);
         }
     };
 

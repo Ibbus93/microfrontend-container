@@ -4,13 +4,14 @@ const MicroFrontend = ({
     name,
     host,
     path,
+    auth,
     window,
     history,
     handler,
     document,
 }) => {
     const renderMicroFrontend = () => {
-        window[`render${name}`](`${name}-container`, history, handler);
+        window[`render${name}`](`${name}-container`, history, handler, auth);
     };
 
     const loadScript = (scriptId) => {
@@ -37,7 +38,6 @@ const MicroFrontend = ({
         loadScript(scriptId);
 
         return function cleanup() {
-            console.log(`unmount${name}`);
             window[`unmount${name}`](`${name}-container`)
         };
     }, []);
