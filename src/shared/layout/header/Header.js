@@ -2,10 +2,10 @@ import React from 'react';
 import { useHistory } from 'react-router';
 
 import { Toolbar, Typography } from '@material-ui/core';
-import { LogoButton, StyledHeader } from '../shared/styled';
+import { LogoButton, StyledHeader } from '../../styled';
 
 import { connect } from 'react-redux';
-import { Selector } from '../../store/user/reducer';
+import { Selector } from '../../../store/user/reducer';
 import { NotSigned, Signed } from './components';
 
 const Header = ({ user }) => {

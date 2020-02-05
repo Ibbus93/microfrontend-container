@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Layout } from '../shared';
+import { Layout } from '../../shared';
 
 const Container = styled.div`
     padding: 0 24px !important;

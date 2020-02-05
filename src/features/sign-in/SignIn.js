@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 
 import { requestUser } from '../../store/user/actions';
 import { Selector } from '../../store/user/reducer';
-import MicroFrontend from '../micro-frontend';
-import { Layout } from '../shared';
+
+import { Layout, MicroFrontend } from '../../shared';
 
 const HOST = process.env.REACT_APP_HOST;
 const SIGN_IN_PATH = process.env.REACT_APP_SIGN_IN_PATH;
@@ -12,7 +12,7 @@ const SIGN_IN_PATH = process.env.REACT_APP_SIGN_IN_PATH;
 const SignIn = ({ history, user, getUser }) => {
     useEffect(() => {
         if (user.data) {
-            history.push('/welcome');
+            history.push('/account');
         }
     }, [user]);
 

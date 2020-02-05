@@ -37,6 +37,7 @@ const MicroFrontend = ({
         loadScript(scriptId);
 
         return function cleanup() {
+            console.log(`unmount${name}`);
             window[`unmount${name}`](`${name}-container`)
         };
     }, []);
@@ -45,7 +46,6 @@ const MicroFrontend = ({
         <main id={`${name}-container`}/>
     );
 };
-
 MicroFrontend.defaultProps = {
     document,
     window,
