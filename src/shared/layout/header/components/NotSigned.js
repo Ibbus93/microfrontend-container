@@ -1,8 +1,8 @@
 import React from 'react';
 import { useHistory } from 'react-router';
 
-import { NavbarButton } from '../../../styled';
-import { RightNav } from '../../../../features/landing/components';
+import { NavbarButton, RightNav } from './styled';
+
 import { GitHub } from '@material-ui/icons';
 import { IconButton } from '@material-ui/core';
 
