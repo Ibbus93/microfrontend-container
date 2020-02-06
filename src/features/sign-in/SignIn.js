@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Cookie from 'js-cookie';
 
 import { requestUser } from '../../store/user/actions';
@@ -36,6 +37,21 @@ const SignIn = ({ history, user, getUser }) => {
             />
         </Layout>
     );
+};
+
+SignIn.propTypes = {
+    history: PropTypes.any.isRequired,
+    user: PropTypes.shape({
+        data: PropTypes.any
+    }),
+    getUser: PropTypes.func
+};
+
+SignIn.defaultProps = {
+    user: {
+        data: null
+    },
+    getUser: () => {}
 };
 
 const mapStateToProps = state => ({

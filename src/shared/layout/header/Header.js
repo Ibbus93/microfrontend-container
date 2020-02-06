@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router';
 
 import { connect } from 'react-redux';
@@ -20,10 +21,23 @@ const Header = ({ user }) => {
                     <LogoButton variant={'contained'} onClick={() => history.push('/')}>Pine Canyon Bank</LogoButton>
                 </Typography>
 
-                { !!user ? <Signed user={user} /> : <NotSigned /> }
+                { !!user ? <Signed username={user.name} /> : <NotSigned /> }
             </Toolbar>
         </StyledHeader>
     );
+};
+
+Header.propTypes = {
+    user: PropTypes.shape({
+        id: PropTypes.string,
+        name: PropTypes.string,
+        surname: PropTypes.string,
+        email: PropTypes.string,
+    })
+};
+
+Header.defaultProps = {
+    user: null
 };
 
 const mapStateToProps = state => ({

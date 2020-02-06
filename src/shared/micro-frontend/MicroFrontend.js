@@ -1,14 +1,15 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 const MicroFrontend = ({
     name,
     host,
     path,
     auth,
-    window,
     history,
     handler,
     document,
+    window
 }) => {
     const renderMicroFrontend = () => {
         window[`render${name}`](`${name}-container`, history, handler, auth);
@@ -46,7 +47,27 @@ const MicroFrontend = ({
         <main id={`${name}-container`}/>
     );
 };
+
+MicroFrontend.propTypes = {
+    name: PropTypes.string.isRequired,
+    host: PropTypes.string.isRequired,
+    path: PropTypes.string.isRequired,
+    auth: PropTypes.shape({
+        id: PropTypes.string,
+        token: PropTypes.string
+    }),
+    history: PropTypes.any.isRequired,
+    handler: PropTypes.func,
+    document: PropTypes.any,
+    window: PropTypes.any
+};
+
 MicroFrontend.defaultProps = {
+    auth: {
+        id: null,
+        token: null
+    },
+    handler: () => {},
     document,
     window,
 };

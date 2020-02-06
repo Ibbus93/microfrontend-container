@@ -1,5 +1,6 @@
 import React from 'react';
 import Cookies from 'js-cookie';
+import PropTypes from 'prop-types';
 
 import { Layout, MicroFrontend } from '../../shared';
 import Authentication from '../../shared/authentication';
@@ -21,5 +22,9 @@ const Account = ({ history }) => (
         />
     </Layout>
 );
+
+Account.propTypes = {
+    history: PropTypes.any.isRequired
+};
 
 export default Authentication(Account);

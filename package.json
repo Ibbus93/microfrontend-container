@@ -8,10 +8,10 @@
   "license": "MIT",
   "scripts": {
     "format": "prettier --write",
-    "start": "react-app-rewired start",
+    "start": "REACT_APP_ENV=dev react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
-    "predeploy": "yarn build",
+    "predeploy": "REACT_APP_ENV=prod yarn build",
     "deploy": "gh-pages -d build"
   },
   "dependencies": {
@@ -19,6 +19,7 @@
     "@material-ui/icons": "^4.9.1",
     "axios": "^0.19.2",
     "js-cookie": "^2.2.1",
+    "prop-types": "^15.7.2",
     "react": "^16.4.0",
     "react-app-polyfill": "^0.2.2",
     "react-dom": "^16.8.6",

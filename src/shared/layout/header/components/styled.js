@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 import { AppBar, Button } from '@material-ui/core';
 
 const RightNav = styled.nav`
@@ -18,7 +18,6 @@ const LogoButton = styled(Button)`
 const NavbarButton = styled(Button)`
     color: white !important;
 `;
-
 
 export {
     RightNav,
