@@ -1,9 +1,9 @@
 {
-  "main.css": "/microfrontend-container/static/css/main.29285df1.css",
-  "main.js": "/microfrontend-container/static/js/main.d31d749c.js",
-  "main.js.map": "/microfrontend-container/static/js/main.d31d749c.js.map",
+  "main.css": "/microfrontend-container/static/css/main.8b79cb80.css",
+  "main.js": "/microfrontend-container/static/js/main.fb46571e.js",
+  "main.js.map": "/microfrontend-container/static/js/main.fb46571e.js.map",
   "index.html": "/microfrontend-container/index.html",
-  "precache-manifest.b3d709657f02c4931dd03085548975da.js": "/microfrontend-container/precache-manifest.b3d709657f02c4931dd03085548975da.js",
+  "precache-manifest.0dc836f8b9527023612d69eb884a06a7.js": "/microfrontend-container/precache-manifest.0dc836f8b9527023612d69eb884a06a7.js",
   "service-worker.js": "/microfrontend-container/service-worker.js",
-  "static/css/main.29285df1.css.map": "/microfrontend-container/static/css/main.29285df1.css.map"
+  "static/css/main.8b79cb80.css.map": "/microfrontend-container/static/css/main.8b79cb80.css.map"
 }
