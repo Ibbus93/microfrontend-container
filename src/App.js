@@ -5,11 +5,20 @@ import PropTypes from 'prop-types';
 import Cookies from "js-cookie";
 import { connect } from "react-redux";
 
+import styled from 'styled-components';
 import { CircularProgress } from '@material-ui/core';
 import { Account, Landing, SignIn } from './features';
 
 import { requestUser } from "./store/user/actions";
 import { Selector } from "./store/user/reducer";
+
+const CenteredContent = styled.div`
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+`;
 
 const App = ({
     user: {
@@ -32,7 +41,11 @@ const App = ({
     }, [data]);
 
     return isLoading || !isDone
-        ? <CircularProgress />
+        ? (
+            <CenteredContent>
+                <CircularProgress />
+            </CenteredContent>
+        )
         : (
             <Switch>
                 <Route path='/sign-in' component={SignIn} />

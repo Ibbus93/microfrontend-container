@@ -22,13 +22,14 @@ const MicroFrontend = ({
                 const script = document.createElement('script');
                 script.id = scriptId;
                 script.crossOrigin = '';
-                script.src = `${host}${manifest['main.js']}`;
+                script.src = `${host}${manifest['files']['main.js']}`;
                 script.onload = renderMicroFrontend;
                 document.head.appendChild(script);
             });
     };
 
     useEffect(() => {
+        console.log(name, host, path, auth, history, handler);
         const scriptId = `micro-frontend-script-${name}`;
 
         if (document.getElementById(scriptId)) {
