@@ -17,7 +17,7 @@ In details:
 
 After the start, the application let the user make the login using the `micro-login`. The login will return to the container a UUID and a token of the user. This data will provided to the `micro-bank-account`: without them, the account will avoid the access to the page.
 
-Each project has been deployed into the personal Github web space in order to work. This is needed by the core of the project, the [Microfrontend](https://github.com/Ibbus93/microfrontend-container/blob/master/src/shared/micro-frontend/MicroFrontend.js) function component: it receives the url of the application, it fetches the manifest and it attaches the `main.js` script file into a new DOM element, using a [render function](https://github.com/Ibbus93/micro-login/blob/master/src/index.js) exposed by each microfrontend. The element will be destroyed when the user change the page with the microfrontend loaded.
+Each project has been deployed into the personal Github web space in order to work. This is needed by the core of the project, the [Microfrontend](https://github.com/Ibbus93/microfrontend-container/blob/master/src/shared/micro-frontend/MicroFrontend.js) function component: it receives the url of the application, it fetches the [asset-manifest.json](https://github.com/Ibbus93/micro-login/blob/gh-pages/asset-manifest.json) and it attaches the `main.js` script file into a new DOM element, using a [render function](https://github.com/Ibbus93/micro-login/blob/master/src/index.js) exposed by each microfrontend. The element will be destroyed when the user change the page with the microfrontend loaded.
 
 The login request, as long as each other HTTP request present into the platform, is submitted to a Postman Mock collection, so every username and password combination is acceptable.
 
@@ -51,11 +51,11 @@ Other notable technologies used are:
 3. `yarn start`
 
 ## Other considerations
-The authentication mechanism here used is missing some token validations and it's far from a production-ready security mechanism. Following more or less the same pattern, I would either suggest or use [aws-amplify](https://github.com/aws-amplify/amplify-js) in the authentication mechanism. In this way, the `micro-bank-account` could just retrieve the token from the cookies instead of waiting for the data from the container.
+The authentication mechanism here used is missing some token validations and it's far from a production-ready security mechanism. Following more or less the same pattern, I would either suggest or use [aws-amplify](https://github.com/aws-amplify/amplify-js) in the authentication mechanism. In this way, the `micro-bank-account` could just retrieve the token from the cookies instead of waiting for the data from the container. A custom CloudFront distribution could also improve the architecture.
 
 ## Future developments
 *  Include a custom components library to be shared between each micro frontend
 *  To add aws-amplify to improve the authentication mechanism 
 
 ## Acknowledgements
-This project, micro-login and micro-bank-account are inspired from the work of [Cam Jackson](https://github.com/camjackson) across [micro-frontends-demo](https://github.com/micro-frontends-demo) that is well described in [this Martin Fowler article](https://martinfowler.com/articles/micro-frontends.html) and that I suggest to read if you finished here someway.
+This project, micro-login and micro-bank-account are inspired by the work of [Cam Jackson](https://github.com/camjackson) across [micro-frontends-demo](https://github.com/micro-frontends-demo) that is well described in [this Martin Fowler article](https://martinfowler.com/articles/micro-frontends.html) that I strongly suggest to read.
