@@ -1,35 +1,13 @@
-html, body, #root {
+html, body {
     height: 100%;
-}
-
-body {
     margin: 0;
-    padding: 0;
-    background: #cfdfda;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    line-height: 1.5;
-    letter-spacing: 0.00938em;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
-#root, #app-container, main {
+#root {
+    background: lightskyblue;
     display: flex;
     flex-direction: column;
-}
-
-#app-container, main {
-    flex: 1;
-}
-
-code {
-    padding: .2em .4em;
-    margin: 0;
-    font-size: 85%;
-    background-color: rgba(27,31,35,.05);
-    border-radius: 3px;
-}
-
-#landing-container .MuiTypography-h5 {
-    margin: 1.75rem 0 0.5rem 0 !important;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
 }

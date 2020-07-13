@@ -1,17 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import Header from './header';
+import Header from "./header";
 
 const Layout = ({ children }) => (
-    <div id="app-container">
-        <Header />
-        { children }
-    </div>
+  <React.Fragment>
+    <Header />
+    {children}
+  </React.Fragment>
 );
 
 Layout.propTypes = {
-    children: PropTypes.element.isRequired
+  children: PropTypes.element.isRequired,
 };
 
 export default Layout;

@@ -1,7 +1,3 @@
-import Layout from "./layout"
-import MicroFrontend from './micro-frontend';
+import Layout from "./layout";
 
-export {
-    Layout,
-    MicroFrontend
-};
+export { Layout };

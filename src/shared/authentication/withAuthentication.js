@@ -5,7 +5,7 @@ import { Redirect } from 'react-router';
 import { useSelector } from 'react-redux';
 import { Selector } from '../../store/user/reducer';
 
-const Authentication = (WrappedComponent) => (
+const withAuthentication = (WrappedComponent) => (
     (props) => {
         const user = useSelector(Selector.getUser);
 
@@ -15,8 +15,8 @@ const Authentication = (WrappedComponent) => (
     }
 );
 
-Authentication.propTypes = {
+withAuthentication.propTypes = {
     WrappedComponent: PropTypes.element.isRequired
 };
 
-export default Authentication;
+export default withAuthentication;
