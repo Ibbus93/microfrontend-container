@@ -3,6 +3,8 @@ const Dotenv = require("dotenv-webpack");
 const ModuleFederationPlugin = require("webpack").container
   .ModuleFederationPlugin;
 
+const deps = require("./package.json").dependencies;
+
 // const dotenv = require("dotenv").config({ path: __dirname + "/.env" });
 
 module.exports = {
@@ -52,11 +54,23 @@ module.exports = {
     new ModuleFederationPlugin({
       name: "app_container",
       remotes: {
-        component_library: "component_library",
-        bankAccount: "bankAccount",
-        signIn: "signIn",
+        component_library: "component_library@http://webpack-component-library.s3-website-eu-west-1.amazonaws.com/remoteEntry.js",
+        bankAccount: "bankAccount@http://app-bank-account.s3-website-eu-west-1.amazonaws.com/remoteEntry.js",
+        signIn: "signIn@http://app-micro-login.s3-website-eu-west-1.amazonaws.com/remoteEntry.js",
       },
-      shared: ["react", "react-dom", "@material-ui/core"],
+      shared: {
+        ...deps,
+        react: {
+          eager: true,
+          singleton: true,
+          requiredVersion: deps.react,
+        },
+        "react-dom": {
+          eager: true,
+          singleton: true,
+          requiredVersion: deps["react-dom"],
+        },
+      }
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
