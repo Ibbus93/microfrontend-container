@@ -10,7 +10,6 @@ const Container = styled.div`
     flex-direction: column;
     background: white;
     height: 100%;
-    border-radius: 10px;
 `;
 
 const Tag = styled(Chip)`
@@ -28,7 +27,6 @@ const SignInSkeleton = () => (
     <Box
         alignItems="center"
         bgcolor="white"
-        borderRadius={5}
         display="flex"
         flexDirection="column"
         height={280}

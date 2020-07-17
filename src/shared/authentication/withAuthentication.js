@@ -7,10 +7,10 @@ import { Selector } from '../../store/user/reducer';
 
 const withAuthentication = (WrappedComponent) => (
     (props) => {
-        const user = useSelector(Selector.getUser);
+        const user = JSON.parse(localStorage.getItem('user'));
 
-        return user.data
-            ? <WrappedComponent { ...props } />
+        return user && user.token
+            ? <WrappedComponent {...props} />
             : <Redirect to="/sign-in" />
     }
 );

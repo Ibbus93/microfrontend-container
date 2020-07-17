@@ -10,9 +10,9 @@ const defaultState = {
 const reducer = handleActions({
     [requestUser]: state => Object.assign({}, state, { isLoading: true }),
     [receivedUser]: (state, { payload: { user: { data } } }) => (
-        Object.assign({}, state, { data, isLoading: false})
+        Object.assign({}, state, { data, isLoading: false })
     ),
-    [userError]: (state, { payload: { error }}) => ({ isLoading: false, error }),
+    [userError]: (state, { payload: { error } }) => ({ isLoading: false, error }),
 }, defaultState);
 
 const Selector = {

@@ -1,21 +1,21 @@
 import React, { useState } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
 
-import { SignInSkeleton } from './features/landing/components';
+import { SignInSkeleton } from './features/Landing/components';
 
-import Landing from "./features/landing";
+import Landing from "./features/Landing";
+import Account from './features/Account';
 
-const Account = React.lazy(() => import("bankAccount/BankAccount"));
 const SignIn = React.lazy(() => import("signIn/SignIn"));
 
 const App = () => {
-  const [auth, setAuth] = useState(null);
   const history = useHistory();
 
   const openAccount = (authorization) => {
-    console.log(authorization);
-    if (authorization.id && authorization.token) {
-      setAuth(authorization);
+    const auth = JSON.parse(localStorage.getItem('auth'));
+
+    if (!auth && authorization.id && authorization.token) {
+      localStorage.setItem('auth', JSON.stringify(authorization));
       history.push("/account");
     }
   };
@@ -28,7 +28,7 @@ const App = () => {
         </React.Suspense>
       </Route>
       <Route path="/account">
-        <Account auth={auth} history={history} />
+        <Account history={history} />
       </Route>
       <Route path="/" component={Landing} exact />
     </Switch>
